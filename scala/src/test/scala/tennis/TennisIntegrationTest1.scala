@@ -39,11 +39,19 @@ class TennisUnitTest1() {
   @Test
   def checkCalculateEqualScore(): Unit = {
     val game = new TennisGame1("player1", "player2")
-    print(s""" testtest ${game.calculateEqualScore(1)}""")
     assertEquals("Love-All", game.calculateEqualScore(0))
     assertEquals("Fifteen-All", game.calculateEqualScore(1))
     assertEquals("Thirty-All", game.calculateEqualScore(2))
     assertEquals("Deuce", game.calculateEqualScore(3))
+  }
+
+  @Test
+  def calculateGteFour(): Unit = {
+    val game = new TennisGame1("player1", "player2")
+    assertEquals("Advantage player1", game.calculateGteFour(3,2))
+    assertEquals("Advantage player2", game.calculateGteFour(2,3))
+    assertEquals("Win for player1", game.calculateGteFour(5,1))
+    assertEquals("Win for player2", game.calculateGteFour(4,4))
   }
 }
 

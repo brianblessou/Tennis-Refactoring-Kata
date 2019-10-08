@@ -28,6 +28,7 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     }
   }
 
+
   /**
     * Calculate the score if difference of the score is greater than 4
     *
@@ -35,10 +36,11 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     */
   def calculateGteFour(m_score1: Int, m_score2: Int): String = {
     val minusResult = m_score1 - m_score2
-    if (minusResult == 1)  "Advantage player1"
-    else if (minusResult == -1)  "Advantage player2"
-    else if (minusResult >= 2) "Win for player1"
-    else "Win for player2"
+
+    if (minusResult == 1)  s"Advantage ${player1Name}"
+    else if (minusResult == -1)  s"Advantage ${player2Name}"
+    else if (minusResult >= 2) s"Win for ${player1Name}"
+    else s"Win for ${player2Name}"
   }
 
   def calculateScore(): String = {
