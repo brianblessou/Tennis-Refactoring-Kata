@@ -2,9 +2,9 @@
 
 import unittest
 
-from tennis_game import TennisGame1
-from tennis_game2 import TennisGame2
-from tennis_game3 import TennisGame3
+from src.tennis_game import TennisGame1
+from src.tennis_game2 import TennisGame2
+from src.tennis_game3 import TennisGame3
 
 test_cases = [
     (0, 0, "Love-All", 'player1', 'player2'),
@@ -64,18 +64,6 @@ def play_game(TennisGame, p1Points, p2Points, p1Name, p2Name):
 
 class TestTennis(unittest.TestCase):
      
-    def test_Score_Game1(self):
-        for testcase in test_cases:
-            (p1Points, p2Points, score, p1Name, p2Name) = testcase
-            game = play_game(TennisGame1, p1Points, p2Points, p1Name, p2Name)
-            self.assertEqual(score, game.score())
-
-    def test_Score_Game2(self):
-        for testcase in test_cases:
-            (p1Points, p2Points, score, p1Name, p2Name) = testcase
-            game = play_game(TennisGame2, p1Points, p2Points, p1Name, p2Name)
-            self.assertEqual(score, game.score())
-
     def test_Score_Game3(self):
         for testcase in test_cases:
             (p1Points, p2Points, score, p1Name, p2Name) = testcase
