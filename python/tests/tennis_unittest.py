@@ -95,7 +95,17 @@ class TestTennis(unittest.TestCase):
         p2Name = "player_two"
         game = TennisGame1(p1Name, p2Name)
 
-        actual = game.calculate_gte_four(self)
+        actual = game.calculate_gte_four(3,2)
+        assert(actual == "Advantage player_one")
+
+        actual = game.calculate_gte_four(4,2)
+        assert(actual == "Win for player_one")
+
+        actual = game.calculate_gte_four(2,3)
+        assert(actual == "Advantage player_two")
+
+        actual = game.calculate_gte_four(2,4)
+        assert(actual == "Win for player_two")
 
 if __name__ == "__main__":
     unittest.main()

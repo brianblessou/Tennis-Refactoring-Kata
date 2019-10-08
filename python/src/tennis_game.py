@@ -25,12 +25,16 @@ class TennisGame1:
             2 : "Thirty-All",
         }.get(score, "Deuce")
 
-    def calculate_gte_four(self):
+    def calculate_gte_four(self,
+                           player_one_score,
+                           player_two_score
+                           ):
         """
         This function calculates the score when they are bigger or equal than four.
         :return: a string containing the score.
         """
-        minusResult = self.p1points-self.p2points
+        minusResult = player_one_score-player_two_score
+
         if (minusResult==1):
             return "Advantage " + self.player1Name
         elif (minusResult ==-1):
@@ -46,7 +50,8 @@ class TennisGame1:
         if (self.p1points==self.p2points):
             result = self.calculate_equal_score(self.p1points)
         elif (self.p1points>=4 or self.p2points>=4):
-            result = self.calculate_gte_four()
+            result = self.calculate_gte_four(self.p1points,self.p2points)
+
         else:
             for i in range(1,3):
                 if (i==1):
