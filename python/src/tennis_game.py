@@ -14,7 +14,7 @@ class TennisGame1:
         else:
             self.p2points += 1
 
-    def calculate_equal_score(self):
+    def calculate_equal_score(self,score):
         """
         This function calculates the scores when they are equal.
         :return: a string containing the score.
@@ -23,11 +23,11 @@ class TennisGame1:
             0 : "Love-All",
             1 : "Fifteen-All",
             2 : "Thirty-All",
-        }.get(self.p1points, "Deuce")
+        }.get(score, "Deuce")
 
     def calculate_gte_four(self):
         """
-        This funciton calculates the score when they are bigger or equal than four.
+        This function calculates the score when they are bigger or equal than four.
         :return: a string containing the score.
         """
         minusResult = self.p1points-self.p2points
@@ -44,7 +44,7 @@ class TennisGame1:
         result = ""
         tempScore = 0
         if (self.p1points==self.p2points):
-            result = self.calculate_equal_score()
+            result = self.calculate_equal_score(self.p1points)
         elif (self.p1points>=4 or self.p2points>=4):
             result = self.calculate_gte_four()
         else:
