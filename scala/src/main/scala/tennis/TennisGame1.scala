@@ -12,12 +12,14 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
       m_score2 += 1
   }
 
+
   /**
     * Calculate the score if the players have the score
     *
+    * @param m_score1, int which is the score of the first player
     * @return a string which contains the score
     */
-  def calculateEqualScore(): String = {
+  def calculateEqualScore(m_score1: Int): String = {
     m_score1 match {
       case 0 => "Love-All"
       case 1 => "Fifteen-All"
@@ -31,7 +33,7 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     *
     * @return a string which contains the score
     */
-  def calculateGteFour(): String = {
+  def calculateGteFour(m_score1: Int, m_score2: Int): String = {
     val minusResult = m_score1 - m_score2
     if (minusResult == 1)  "Advantage player1"
     else if (minusResult == -1)  "Advantage player2"
@@ -43,10 +45,10 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     var score: String = ""
     var tempScore = 0
     if (m_score1 == m_score2) {
-      score = calculateEqualScore()
+      score = calculateEqualScore(m_score1)
     }
     else if (m_score1 >= 4 || m_score2 >= 4) {
-      score = calculateGteFour()
+      score = calculateGteFour(m_score1, m_score2)
     }
     else {
       for (i <- 1 until 3 by 1) {

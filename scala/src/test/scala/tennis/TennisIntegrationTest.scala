@@ -10,7 +10,7 @@ import org.junit.runners.Parameterized.Parameters
 import java.util
 
 @RunWith(classOf[Parameterized])
-class TennisTest(params:TennisTestCase) {
+class TennisIntegrationTest(params:TennisTestCase) {
 
     def checkAllScores(game :TennisGame) {
       val highestScore = Math.max(params.player1Score, params.player2Score)
@@ -28,6 +28,8 @@ class TennisTest(params:TennisTestCase) {
         val game = new TennisGame1("player1", "player2")
         checkAllScores(game)
     }
+
+
 
 /*  @Test
     def checkAllScoresTennisGame2() {
@@ -51,7 +53,7 @@ class TennisTest(params:TennisTestCase) {
 
 }
 
-object TennisTest {
+object TennisIntegrationTest {
   @Parameters
      def  getAllScores() : java.util.Collection[Array[TennisTestCase]] = {
        var list = new util.ArrayList[Array[TennisTestCase]]();
