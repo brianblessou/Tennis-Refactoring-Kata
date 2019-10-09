@@ -2,7 +2,7 @@
 
 import unittest
 
-from src.tennis_game import TennisGame1
+from src.tennisgame1.tennis_game import TennisGame1
 
 test_cases = [
     (0, 0, "Love-All", 'player1', 'player2'),
@@ -68,44 +68,7 @@ class TestTennis(unittest.TestCase):
             game = play_game(TennisGame1, p1Points, p2Points, p1Name, p2Name)
             self.assertEqual(score, game.score())
 
-    def test_calculate_equal_score(self):
-        p1Name = "player_one"
-        p2Name = "player_two"
-        game = TennisGame1(p1Name, p2Name)
 
-        actual = game.calculate_equal_score(0)
-        expected = "Love-All"
-        assert(actual == expected)
-
-
-        actual = game.calculate_equal_score(1)
-        expected = "Fifteen-All"
-        assert(actual == expected)
-
-        actual = game.calculate_equal_score(2)
-        expected = "Thirty-All"
-        assert(actual == expected)
-
-        actual = game.calculate_equal_score(3)
-        expected = "Deuce"
-        assert(actual == expected)
-
-    def test_calculate_gte_four(self):
-        p1Name = "player_one"
-        p2Name = "player_two"
-        game = TennisGame1(p1Name, p2Name)
-
-        actual = game.calculate_gte_four(3,2)
-        assert(actual == "Advantage player_one")
-
-        actual = game.calculate_gte_four(4,2)
-        assert(actual == "Win for player_one")
-
-        actual = game.calculate_gte_four(2,3)
-        assert(actual == "Advantage player_two")
-
-        actual = game.calculate_gte_four(2,4)
-        assert(actual == "Win for player_two")
 
 if __name__ == "__main__":
     unittest.main()
