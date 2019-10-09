@@ -2,12 +2,26 @@ package tennis.game1
 
 import tennis.TennisGame
 
+/**
+  * Class to play a tennis game between two players.
+  *
+  * It will calculate the scrore in case of equality, match points or regular game
+  *
+  * @param player1Name, a string
+  * @param player2Name, a string
+  */
 class TennisGame1(val player1Name: String, val player2Name: String) extends TennisGame {
   var m_score1: Int = 0
   var m_score2: Int = 0
 
+
+  /**
+    * Increment the score for a player who won the set
+    *
+    * @param playerName, a string
+    */
   def wonPoint(playerName: String) {
-    if (playerName == "player1")
+    if (playerName == player1Name)
       m_score1 += 1
     else
       m_score2 += 1
@@ -15,58 +29,20 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
 
 
   /**
-    * Calculate the score if the players have the score
+    * Calculate the score in case of Equality, Match points or Regular game
     *
-    * @param m_score1 , int which is the score of the first player
-    * @return a string which contains the score
+    * @return a string which indicate the
     */
-  def calculateScoreForEquality(m_score1: Int): String = {
-    m_score1 match {
-      case 0 => "Love-All"
-      case 1 => "Fifteen-All"
-      case 2 => "Thirty-All"
-      case _ => "Deuce"
-    }
-  }
-
-
-  /**
-    * Calculate the score if difference of the score is greater than 4
-    *
-    * @return a string which contains the score
-    */
-  def calculateScoreForMatchPoints(m_score1: Int, m_score2: Int): String = {
-    val minusResult = m_score1 - m_score2
-
-    if (minusResult == 1) s"Advantage ${player1Name}"
-    else if (minusResult == -1) s"Advantage ${player2Name}"
-    else if (minusResult >= 2) s"Win for ${player1Name}"
-    else s"Win for ${player2Name}"
-  }
-
   def calculateScore(): String = {
     if (m_score1 == m_score2) {
-      calculateScoreForEquality(m_score1)
+      Equality(m_score1).calculateScore()
     }
+
     else if (m_score1 >= 4 || m_score2 >= 4) {
-      calculateScoreForMatchPoints(m_score1, m_score2)
+      MatchPoints(m_score1, m_score2, player1Name, player2Name).calculateScore()
     }
     else {
-      calculateScoreForRegularPoints(m_score1, m_score2)
+      Regular(m_score1, m_score2).calculateScore()
     }
   }
-
-  def calculateScoreForRegularPoints(i: Int, i1: Int): String = {
-    getScore(m_score1) + "-" + getScore(m_score2)
-  }
-
-  def getScore(tempScore: Int): String = {
-    tempScore match {
-      case 0 => "Love"
-      case 1 => "Fifteen"
-      case 2 => "Thirty"
-      case 3 => "Forty"
-    }
-  }
-
 }

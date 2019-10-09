@@ -10,7 +10,7 @@ import org.junit.runners.Parameterized.Parameters
 import tennis.{TennisGame, TennisTestCase}
 
 /**
-  * Class to run integration tests
+  * Class to run integration tests (100 % covered) for the TennisGame1
   *
   * @param params
   */
@@ -29,7 +29,7 @@ class TennisIntegrationTest(params: TennisTestCase) {
   }
 
   @Test
-  def checkAllScoresTennisGame1() {
+  def checkAllScoresTennis() {
     val game = new TennisGame1("player1", "player2")
     checkAllScores(game)
   }
