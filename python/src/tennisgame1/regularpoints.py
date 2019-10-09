@@ -5,7 +5,6 @@ Class to calculate the scores when the points are not equal or above 40.
 
 class RegularPoints(object):
 
-
     def calculate_score_regular_points(self,
                                        player_one_score,
                                        player_two_score):
@@ -16,8 +15,8 @@ class RegularPoints(object):
         return self._calculate_player_score(player_one_score) + \
                "-" + self._calculate_player_score(player_two_score)
 
-    def _calculate_player_score(self,
-                                score):
+    @staticmethod
+    def _calculate_player_score(score):
         """
         This function calculates an individual player his score
         :param score:  the score to calculate
