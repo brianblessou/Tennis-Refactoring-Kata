@@ -6,7 +6,7 @@ class to calculate the outcome string when the scores are equal.
 class EqualityPoints(object):
 
     @staticmethod
-    def calculateScore_equality(score):
+    def calculate_score_equality(score):
         """
         This function calculates the scores when they are equal.
         :return: a string containing the score.

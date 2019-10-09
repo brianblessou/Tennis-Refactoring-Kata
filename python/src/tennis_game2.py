@@ -30,8 +30,8 @@ class TennisGame2:
             else:
                 result = "Deuce"
 
-        if (self.p2points < self.p1points < 4) \
-            or (self.p1points < self.p2points < 4) \
+        if (self.p2points > self.p1points < 4) \
+            or (self.p1points > self.p2points < 4) \
             or (self.p2points > 0 and self.p1points==0) \
             or (self.p1points > 0 and self.p2points==0):
             P1res = self.calculate_score(self.p1points)
