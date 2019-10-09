@@ -27,8 +27,11 @@ class TennisGame1:
         """
         if playerName == self.player1Name:
             self.p1points += 1
-        else:
+        elif playerName == self.player2Name:
             self.p2points += 1
+        else:
+            raise Exception("The player name is invalid.")
+
 
     def score(self):
         """

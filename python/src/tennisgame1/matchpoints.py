@@ -37,5 +37,7 @@ class MatchPoints():
            return "Advantage " + self.player_two_name
         elif (minusResult>=2):
             return "Win for " + self.player_one_name
-        else:
+        elif (minusResult <=-2):
             return "Win for " + self.player_two_name
+        else:
+            raise Exception("This should never be reached.")
