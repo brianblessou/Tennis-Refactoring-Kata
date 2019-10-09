@@ -30,24 +30,32 @@ class TennisGame2:
             else:
                 result = "Deuce"
 
-        if (self.p2points > self.p1points < 4) \
-            or (self.p1points > self.p2points < 4) \
-            or (self.p2points > 0 and self.p1points==0) \
-            or (self.p1points > 0 and self.p2points==0):
-            P1res = self.calculate_score(self.p1points)
-            P2res = self.calculate_score(self.p2points)
-            result = P1res + "-" + P2res
+        if (self.p1points or self.p2points < 4):
 
-        if (self.p1points > self.p2points and self.p2points >= 3):
-            result = "Advantage " + self.player1Name
+            if (self.p2points != self.p1points ) \
+                or (self.p2points > 0 and self.p1points==0) \
+                or (self.p1points > 0 and self.p2points==0):
+                P1res = self.calculate_score(self.p1points)
+                P2res = self.calculate_score(self.p2points)
+                result = P1res + "-" + P2res
 
-        if (self.p2points > self.p1points and self.p1points >= 3):
-            result = "Advantage " + self.player2Name
+        if self.p1points > self.p2points:
+            if self.p2points >= 3:
+                result = "Advantage " + self.player1Name
 
-        if (self.p1points>=4 and self.p2points>=0 and (self.p1points-self.p2points)>=2):
-            result = "Win for " + self.player1Name
-        if (self.p2points>=4 and self.p1points>=0 and (self.p2points-self.p1points)>=2):
-            result = "Win for " + self.player2Name
+        if self.p2points > self.p1points:
+            if self.p1points >= 3:
+                result = "Advantage " + self.player2Name
+
+        if self.p1points>=4:
+            if self.p2points>=0:
+                if self.p1points-self.p2points>=2:
+                    result = "Win for " + self.player1Name
+        if self.p2points>=4:
+            if self.p1points>=0:
+                if self.p2points-self.p1points>=2:
+                    result = "Win for " + self.player2Name
+
         return result
 
 
