@@ -17,6 +17,15 @@ class TennisUnitTest1() {
     assertEquals("Thirty-All", Equality.calculateScore(2))
     assertEquals("Deuce", Equality.calculateScore(3))
   }
+
+//  @Test
+//  def checkCalculateScoreForRegular(): Unit = {
+//    assertEquals("Love-All", Regular.calculateScore(0,0))
+//    assertEquals("Love-Fifteen", Regular.calculateScore(0,1))
+//    assertEquals("Love-Thirty", Regular.calculateScore(0,2))
+//    assertEquals("Love-Forty", Regular.calculateScore(0,3))
+//  }
+
 //
 //  @Test
 //  def checkCalculateScoreForMatchPoints(): Unit = {

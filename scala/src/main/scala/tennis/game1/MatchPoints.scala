@@ -20,7 +20,6 @@ class MatchPoints(player1Name: String, player2Name: String) {
 }
 
 
-
 object MatchPoints {
 
   def apply(player1Name: String, player2Name: String): MatchPoints

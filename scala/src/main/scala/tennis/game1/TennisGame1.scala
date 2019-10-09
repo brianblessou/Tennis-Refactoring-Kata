@@ -16,15 +16,18 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
 
 
   /**
-    * Increment the score for a player who won the set
     *
-    * @param playerName, a string
+    * @param playerName
+    * @throws java.lang.Exception
     */
+  @throws(classOf[Exception])
   def wonPoint(playerName: String) {
     if (playerName == player1Name)
       m_score1 += 1
-    else
+    else if (playerName == player2Name)
       m_score2 += 1
+    else
+      throw new Exception(s"player name is not correct")
   }
 
 
