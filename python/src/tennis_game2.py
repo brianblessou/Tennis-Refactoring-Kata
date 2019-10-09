@@ -39,13 +39,13 @@ class TennisGame2:
                 P2res = self.calculate_score(self.p2points)
                 result = P1res + "-" + P2res
 
-        if self.p1points > self.p2points:
-            if self.p2points >= 3:
-                result = "Advantage " + self.player1Name
+            if self.p1points > self.p2points:
+                if self.p2points >= 3:
+                     result = "Advantage " + self.player1Name
 
-        if self.p2points > self.p1points:
-            if self.p1points >= 3:
-                result = "Advantage " + self.player2Name
+            if self.p2points > self.p1points:
+                 if self.p1points >= 3:
+                     result = "Advantage " + self.player2Name
 
         if self.p1points>=4:
             if self.p2points>=0:
