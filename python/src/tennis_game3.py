@@ -19,10 +19,14 @@ class TennisGame3:
             if self.player_one_score == self.player_two_score:
                 return result_string + "-All"
             else:
-                result_string + "-" + result_scores[self.player_two_score]
+                return result_string + "-" + result_scores[self.player_two_score]
         else:
             if self.player_one_score == self.player_two_score:
                 return "Deuce"
-            result_string = self.player_one_name if self.player_one_score > self.player_two_score else self.player_two_name
-            return "Advantage " + result_string if ((self.player_one_score - self.player_two_score) * (self.player_one_score - self.player_two_score) == 1) \
-                else "Win for " + result_string
+            if self.player_one_score > self.player_two_score:
+                winning_player = self.player_one_name
+            else:
+                winning_player = self.player_two_name
+            if (self.player_one_score - self.player_two_score) * (self.player_one_score - self.player_two_score) == 1:
+                    return "Advantage " + winning_player
+            else: return "Win for " + winning_player
