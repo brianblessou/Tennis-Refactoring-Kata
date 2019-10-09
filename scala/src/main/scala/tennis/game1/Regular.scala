@@ -1,7 +1,9 @@
 package tennis.game1
 
-class Regular(m_score1: Int, m_score2: Int) {
-  def calculateScore(): String = {
+
+object Regular {
+
+  def calculateScore(m_score1: Int, m_score2: Int): String = {
     getScore(m_score1) + "-" + getScore(m_score2)
   }
 
@@ -13,11 +15,5 @@ class Regular(m_score1: Int, m_score2: Int) {
       case 3 => "Forty"
     }
   }
-}
-
-
-object Regular {
-
-  def apply(m_score1: Int, m_score2: Int): Regular = new Regular(m_score1, m_score2)
 
 }

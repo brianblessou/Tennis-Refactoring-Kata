@@ -1,16 +1,14 @@
 package tennis.game1
 
-/**
-  * Calcul the score in case of equality
-  */
-class Equality(m_score1: Int) {
 
+
+object Equality {
   /**
     * Calculate the score if the players have the score
     *
     * @return a string which contains the score
     */
-  def calculateScore(): String = {
+  def calculateScore(m_score1: Int): String = {
     m_score1 match {
       case 0 => "Love-All"
       case 1 => "Fifteen-All"
@@ -18,8 +16,4 @@ class Equality(m_score1: Int) {
       case _ => "Deuce"
     }
   }
-}
-
-object Equality {
-  def apply(m_score1: Int): Equality = new Equality(m_score1)
 }

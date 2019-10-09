@@ -10,14 +10,13 @@ import org.junit.Test
   */
 class TennisUnitTest1() {
 
-//  @Test
-//  def checkCalculateScoreForEquality(): Unit = {
-//    val game = new TennisGame1("player1", "player2")
-//    assertEquals("Love-All", game.calculateScoreForEquality(0))
-//    assertEquals("Fifteen-All", game.calculateScoreForEquality(1))
-//    assertEquals("Thirty-All", game.calculateScoreForEquality(2))
-//    assertEquals("Deuce", game.calculateScoreForEquality(3))
-//  }
+  @Test
+  def checkCalculateScoreForEquality(): Unit = {
+    assertEquals("Love-All", Equality.calculateScore(0))
+    assertEquals("Fifteen-All", Equality.calculateScore(1))
+    assertEquals("Thirty-All", Equality.calculateScore(2))
+    assertEquals("Deuce", Equality.calculateScore(3))
+  }
 //
 //  @Test
 //  def checkCalculateScoreForMatchPoints(): Unit = {

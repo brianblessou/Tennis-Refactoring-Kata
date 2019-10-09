@@ -35,14 +35,14 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     */
   def calculateScore(): String = {
     if (m_score1 == m_score2) {
-      Equality(m_score1).calculateScore()
+      Equality.calculateScore(m_score1)
     }
 
     else if (m_score1 >= 4 || m_score2 >= 4) {
-      MatchPoints(m_score1, m_score2, player1Name, player2Name).calculateScore()
+      MatchPoints(player1Name, player2Name).calculateScore(m_score1, m_score2)
     }
     else {
-      Regular(m_score1, m_score2).calculateScore()
+      Regular.calculateScore(m_score1, m_score2)
     }
   }
 }
