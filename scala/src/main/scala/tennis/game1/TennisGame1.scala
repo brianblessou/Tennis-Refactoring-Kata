@@ -1,5 +1,6 @@
-package tennis
+package tennis.game1
 
+import tennis.TennisGame
 
 class TennisGame1(val player1Name: String, val player2Name: String) extends TennisGame {
   var m_score1: Int = 0
@@ -19,7 +20,7 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     * @param m_score1 , int which is the score of the first player
     * @return a string which contains the score
     */
-  def calculateEqualScore(m_score1: Int): String = {
+  def calculateScoreForEquality(m_score1: Int): String = {
     m_score1 match {
       case 0 => "Love-All"
       case 1 => "Fifteen-All"
@@ -34,7 +35,7 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
     *
     * @return a string which contains the score
     */
-  def calculateGteFour(m_score1: Int, m_score2: Int): String = {
+  def calculateScoreForMatchPoints(m_score1: Int, m_score2: Int): String = {
     val minusResult = m_score1 - m_score2
 
     if (minusResult == 1) s"Advantage ${player1Name}"
@@ -44,21 +45,20 @@ class TennisGame1(val player1Name: String, val player2Name: String) extends Tenn
   }
 
   def calculateScore(): String = {
-    var score: String = ""
-    var tempScore = 0
     if (m_score1 == m_score2) {
-      score = calculateEqualScore(m_score1)
+      calculateScoreForEquality(m_score1)
     }
     else if (m_score1 >= 4 || m_score2 >= 4) {
-      score = calculateGteFour(m_score1, m_score2)
+      calculateScoreForMatchPoints(m_score1, m_score2)
     }
     else {
-      score = getScore(m_score1) + "-" + getScore(m_score2)
+      calculateScoreForRegularPoints(m_score1, m_score2)
     }
-
-    return score
   }
 
+  def calculateScoreForRegularPoints(i: Int, i1: Int): String = {
+    getScore(m_score1) + "-" + getScore(m_score2)
+  }
 
   def getScore(tempScore: Int): String = {
     tempScore match {

@@ -1,5 +1,6 @@
-package tennis
+package tennis.game3
 
+import tennis.TennisGame
 
 class TennisGame3 (val p1N : String, val p2N : String) extends TennisGame {
 

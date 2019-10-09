@@ -1,4 +1,4 @@
-package tennis
+package tennis.game1
 
 import java.util
 
@@ -7,9 +7,15 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
+import tennis.{TennisGame, TennisTestCase}
 
+/**
+  * Class to run integration tests
+  *
+  * @param params
+  */
 @RunWith(classOf[Parameterized])
-class TennisIntegrationTest1(params: TennisTestCase) {
+class TennisIntegrationTest(params: TennisTestCase) {
 
   def checkAllScores(game: TennisGame) {
     val highestScore = Math.max(params.player1Score, params.player2Score)
@@ -30,32 +36,7 @@ class TennisIntegrationTest1(params: TennisTestCase) {
 
 }
 
-/**
-  * Unit test for functions:
-  *      calculateEqualScore
-  */
-class TennisUnitTest1() {
-
-  @Test
-  def checkCalculateEqualScore(): Unit = {
-    val game = new TennisGame1("player1", "player2")
-    assertEquals("Love-All", game.calculateEqualScore(0))
-    assertEquals("Fifteen-All", game.calculateEqualScore(1))
-    assertEquals("Thirty-All", game.calculateEqualScore(2))
-    assertEquals("Deuce", game.calculateEqualScore(3))
-  }
-
-  @Test
-  def calculateGteFour(): Unit = {
-    val game = new TennisGame1("player1", "player2")
-    assertEquals("Advantage player1", game.calculateGteFour(3,2))
-    assertEquals("Advantage player2", game.calculateGteFour(2,3))
-    assertEquals("Win for player1", game.calculateGteFour(5,1))
-    assertEquals("Win for player2", game.calculateGteFour(4,4))
-  }
-}
-
-object TennisIntegrationTest1 {
+object TennisIntegrationTest {
   @Parameters
   def getAllScores(): java.util.Collection[Array[TennisTestCase]] = {
     var list = new util.ArrayList[Array[TennisTestCase]]();
