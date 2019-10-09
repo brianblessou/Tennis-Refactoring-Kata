@@ -2,7 +2,7 @@
 
 import unittest
 
-from src.tennis_game2 import TennisGame2
+from src.tennisgame2.tennis_game2 import TennisGame2
 
 test_cases = [
     (0, 0, "Love-All", 'player1', 'player2'),
