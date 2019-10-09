@@ -17,20 +17,27 @@ class TennisGame2(val player1Name: String, val player2Name: String) extends Tenn
   def calculateScore(): String = {
     var score = ""
 
-    if (P1point == P2point && P1point < 4) {
-      P1point match {
-        case 0 => score = "Love"
-        case 1 => score = "Fifteen"
-        case 2 => score = "Thirty"
-        case _ => print("Exception")
+    // In case of equality
+    if (P1point == P2point) {
+      if (P1point >= 3) {
+        score = "Deuce"
+      } else  {
+        P1point match {
+          case 0 => score = "Love"
+          case 1 => score = "Fifteen"
+          case 2 => score = "Thirty"
+          case _ => print("Exception")
+        }
+        score += "-All"
       }
-
-      score += "-All"
     }
 
-    if (P1point == P2point && P1point >= 3)
-      score = "Deuce"
+//    // IF P1point > P2Point
+//    if (P1point > P2point) {
+//
+//    }
 
+    // P1point > P2Point
     if (P1point > 0 && P2point == 0) {
 
       P1point match {
@@ -56,6 +63,7 @@ class TennisGame2(val player1Name: String, val player2Name: String) extends Tenn
       score = getConcatenatedScore(P1res, P2res)
     }
 
+    // P1point > P2Point && something else
     if (P1point > P2point && P1point < 4) {
       P1point match {
         case 2 => P1res = "Thirty"
@@ -72,6 +80,8 @@ class TennisGame2(val player1Name: String, val player2Name: String) extends Tenn
 
       score = getConcatenatedScore(P1res, P2res)
     }
+
+
     if (P2point > P1point && P2point < 4) {
 
       P1point match {
@@ -89,6 +99,7 @@ class TennisGame2(val player1Name: String, val player2Name: String) extends Tenn
       score = getConcatenatedScore(P1res, P2res)
     }
 
+    // P1point > P2Point && something else
     if (P1point > P2point && P2point >= 3) {
       score = "Advantage player1"
     }
@@ -97,6 +108,7 @@ class TennisGame2(val player1Name: String, val player2Name: String) extends Tenn
       score = "Advantage player2"
     }
 
+    // Check for those ones
     if (P1point >= 4 && P2point >= 0 && (P1point - P2point) >= 2) {
       score = "Win for player1"
     }
