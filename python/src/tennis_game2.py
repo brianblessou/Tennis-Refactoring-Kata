@@ -47,13 +47,13 @@ class TennisGame2:
                  if self.p1points >= 3:
                      result = "Advantage " + self.player2Name
 
-        if self.p1points>=4:
-            if self.p2points>=0:
-                if self.p1points-self.p2points>=2:
+
+        if self.p1points>=4 or self.p2points >= 4:
+            if self.p2points>=0 or self.p1points >= 0:
+                minusResult = self.p1points - self.p2points
+                if minusResult>=2:
                     result = "Win for " + self.player1Name
-        if self.p2points>=4:
-            if self.p1points>=0:
-                if self.p2points-self.p1points>=2:
+                if minusResult <= -2:
                     result = "Win for " + self.player2Name
 
         return result
